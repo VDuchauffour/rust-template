@@ -1,0 +1,74 @@
+_templates_suffix: .jinja
+
+_jinja_extensions:
+  - jinja2_time.TimeExtension
+
+project_name:
+  type: str
+  help: The Rust package name (used in Cargo.toml)
+  default: my-rust-project
+
+project_description:
+  type: str
+  help: A short description of the project
+  default: A Rust project
+
+github_owner:
+  type: str
+  help: GitHub username or organization
+  default: myusername
+
+github_repo:
+  type: str
+  help: GitHub repository name
+  default: '{{ project_name }}'
+
+author_name:
+  type: str
+  help: Author name for Cargo.toml (optional)
+  default: ''
+
+author_email:
+  type: str
+  help: Author email for Cargo.toml (optional)
+  default: ''
+
+license:
+  type: str
+  help: License for the project
+  choices:
+    - MIT
+    - Apache-2.0
+    - GPL-3.0
+    - Unlicense
+    - None
+  default: MIT
+
+copyright_holder:
+  type: str
+  help: Copyright holder name (used in the LICENSE file)
+  default: '{{ author_name }}'
+  when: "{{ license in ['MIT', 'GPL-3.0'] }}"
+
+publish_to_crate:
+  type: bool
+  help: Include a GitHub Actions workflow to publish releases to crates.io?
+  default: false
+
+_exclude:
+  - .git
+  - copier.yml
+  - copier.yaml
+  - '*.py[co]'
+  - __pycache__
+  - .coverage
+  - htmlcov
+  - target
+  - Cargo.lock
+  - node_modules
+  - .omo
+  - '*.lcov'
+
+_tasks:
+  - '{% if not publish_to_crate %}rm -f .github/workflows/publish.yml{% endif %}'
+  - "{% if license == 'None' %}rm -f LICENSE{% endif %}"
