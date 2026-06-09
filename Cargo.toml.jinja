@@ -1,0 +1,17 @@
+[package]
+name = "{{ project_name }}"
+version = "0.1.0"
+edition = "2024"
+description = "{{ project_description }}"
+{% if license != 'None' %}license = "{{ license }}"
+{% endif %}repository = "https://github.com/{{ github_owner }}/{{ github_repo }}"
+{% if author_name %}
+authors = ["{{ author_name }}{% if author_email %} <{{ author_email }}>{% endif %}"]
+{% endif %}
+
+[dependencies]
+
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1
