@@ -43,6 +43,10 @@ fmt:
 fmt-check:
     cargo +nightly fmt --check
 
+machete:
+    command -v cargo-machete >/dev/null 2>&1 || cargo install cargo-machete
+    cargo machete
+
 check:
     cargo check
 
