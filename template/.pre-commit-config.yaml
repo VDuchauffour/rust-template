@@ -38,3 +38,10 @@ repos:
           - mdformat-tables
           - mdformat-frontmatter
           - mdformat-shfmt
+  - repo: local
+    hooks:
+      - id: just-check
+        name: just check
+        entry: just check
+        language: system
+        pass_filenames: false
