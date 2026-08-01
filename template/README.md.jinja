@@ -37,6 +37,12 @@ just ci     # fmt-check + lint-strict + test
 
 1. Push a tag: `git tag -a v0.1.0 -m "Release v0.1.0" && git push origin v0.1.0`
 2. The [release-drafter](.github/workflows/release-drafter.yml) workflow auto-drafts release notes on every push to `main`.
-{% if release %}
-3. Publish the drafted release on GitHub to trigger the [release](.github/workflows/release.yml) workflow, which builds and uploads binaries for multiple targets and publishes the crate to crates.io.
+{% if publish_to_crate or build_binaries -%}
+3. Publish the drafted release on GitHub to trigger the release workflows:
+{%- if build_binaries %}
+   - [build-binaries](.github/workflows/build-binaries.yml) builds and uploads binaries for multiple targets
+{%- endif %}
+{%- if publish_to_crate %}
+   - [publish](.github/workflows/publish.yml) publishes the crate to crates.io
+{%- endif %}
 {% endif %}

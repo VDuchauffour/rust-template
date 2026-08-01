@@ -52,10 +52,15 @@ copyright_holder:
   default: '{{ author_name }}'
   when: "{{ license in ['MIT', 'GPL-3.0'] }}"
 
-release:
+publish_to_crate:
   type: bool
-  help: Include a GitHub Actions release workflow (builds binaries for multiple targets
-    and publishes to crates.io)?
+  help: Include a GitHub Actions workflow to publish the crate to crates.io on release?
+  default: false
+
+build_binaries:
+  type: bool
+  help: Include a GitHub Actions workflow to build and upload binaries for multiple
+    targets on release?
   default: false
 
 _exclude:
@@ -73,5 +78,7 @@ _exclude:
   - '*.lcov'
 
 _tasks:
-  - '{% if not release %}rm -f .github/workflows/release.yml{% endif %}'
+  - '{% if not publish_to_crate %}rm -f .github/workflows/publish.yml{% endif %}'
+  - '{% if not build_binaries %}rm -f .github/workflows/build-binaries.yml{% endif
+    %}'
   - "{% if license == 'None' %}rm -f LICENSE{% endif %}"

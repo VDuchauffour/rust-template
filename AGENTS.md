@@ -44,14 +44,16 @@ To test a specific variant (e.g. no license, or with crates.io publish):
 ```sh
 uvx --with jinja2-time copier copy . /tmp/render \
 	--defaults --vcs-ref=HEAD --trust \
-	--data license=None --data copyright_holder=
+	--data license=None --data copyright_holder= \
+	--data publish_to_crate=true --data build_binaries=true
 ```
 
 ## Copier `_tasks` (post-render conditional deletion)
 
-`copier.yml` defines two tasks that run after rendering:
+`copier.yml` defines three tasks that run after rendering:
 
-- `release=false` → removes `.github/workflows/release.yml`
+- `publish_to_crate=false` → removes `.github/workflows/publish.yml`
+- `build_binaries=false` → removes `.github/workflows/build-binaries.yml`
 - `license=='None'` → removes `LICENSE`
 
 These are shell commands, which is why `--trust` is required when copying.
