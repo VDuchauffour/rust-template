@@ -69,7 +69,3 @@ Answer the prompts (project name, license, GitHub owner, etc.) and Copier render
 └── .github/workflows/
     └── pr-enhancement.yml     # CI for this template repo (PR title/label rules)
 ```
-
-## License
-
-MIT.
