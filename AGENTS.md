@@ -51,7 +51,7 @@ uvx --with jinja2-time copier copy . /tmp/render \
 
 `copier.yml` defines two tasks that run after rendering:
 
-- `publish_to_crate=false` → removes `.github/workflows/publish.yml`
+- `release=false` → removes `.github/workflows/release.yml`
 - `license=='None'` → removes `LICENSE`
 
 These are shell commands, which is why `--trust` is required when copying.

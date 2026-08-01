@@ -33,21 +33,21 @@ Answer the prompts (project name, license, GitHub owner, etc.) and Copier render
 - **Pre-commit** hooks — trailing whitespace, yamlfix, taplo, mdformat, prettier
 - **Renovate** config for automated dependency updates
 - **Just** recipes for common tasks (`just ci`, `just fmt`, `just lint-strict`, ...)
-- Optional **crates.io publish** workflow (toggle via `publish_to_crate`)
+- Optional **release** workflow — builds binaries for multiple targets and publishes to crates.io (toggle via `release`)
 
 ## Template options
 
-| Prompt                | Type   | Default           | Notes                                               |
-| --------------------- | ------ | ----------------- | --------------------------------------------------- |
-| `project_name`        | str    | `my-rust-project` | Cargo package name                                  |
-| `project_description` | str    | `A Rust project`  |                                                     |
-| `github_owner`        | str    | `myusername`      |                                                     |
-| `github_repo`         | str    | `= project_name`  |                                                     |
-| `author_name`         | str    | _(empty)_         |                                                     |
-| `author_email`        | str    | _(empty)_         |                                                     |
-| `license`             | choice | `MIT`             | MIT, Apache-2.0, GPL-3.0, Unlicense, None           |
-| `copyright_holder`    | str    | `= author_name`   | Asked only for MIT / GPL-3.0                        |
-| `publish_to_crate`    | bool   | `false`           | Adds a release-triggered crates.io publish workflow |
+| Prompt                | Type   | Default           | Notes                                                  |
+| --------------------- | ------ | ----------------- | ------------------------------------------------------ |
+| `project_name`        | str    | `my-rust-project` | Cargo package name                                     |
+| `project_description` | str    | `A Rust project`  |                                                        |
+| `github_owner`        | str    | `myusername`      |                                                        |
+| `github_repo`         | str    | `= project_name`  |                                                        |
+| `author_name`         | str    | _(empty)_         |                                                        |
+| `author_email`        | str    | _(empty)_         |                                                        |
+| `license`             | choice | `MIT`             | MIT, Apache-2.0, GPL-3.0, Unlicense, None              |
+| `copyright_holder`    | str    | `= author_name`   | Asked only for MIT / GPL-3.0                           |
+| `release`             | bool   | `false`           | Adds a release workflow (binaries + crates.io publish) |
 
 ## Repository layout
 
