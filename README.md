@@ -49,6 +49,7 @@ Answer the prompts (project name, license, GitHub owner, etc.) and Copier render
 | `copyright_holder`    | str    | `= author_name`   | Asked only for MIT / GPL-3.0                      |
 | `publish_to_crate`    | bool   | `false`           | Adds a workflow to publish the crate to crates.io |
 | `build_binaries`      | bool   | `false`           | Adds a workflow to build and upload binaries      |
+| `init_git_repo`       | bool   | `true`            | Runs `git init` + an "Initial commit" when done   |
 
 ## Repository layout
 

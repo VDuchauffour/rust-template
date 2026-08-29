@@ -63,6 +63,12 @@ build_binaries:
     targets on release?
   default: false
 
+init_git_repo:
+  type: bool
+  help: Initialize a git repository and create an "Initial commit" once the project
+    is generated?
+  default: true
+
 _exclude:
   - .git
   - copier.yml
@@ -82,3 +88,9 @@ _tasks:
   - '{% if not build_binaries %}rm -f .github/workflows/build-binaries.yml{% endif
     %}'
   - "{% if license == 'None' %}rm -f LICENSE{% endif %}"
+  - >-
+    {% if init_git_repo %}[ -d .git ] || { git init -q -b main && git add -A &&
+    git {% if author_name %}-c user.name="{{ author_name }}" {% endif %}{% if
+    author_email %}-c user.email="{{ author_email }}" {% endif %}commit -q -m
+    'Initial commit' || echo 'Could not create the initial commit -- is git
+    configured?'; }{% endif %}
