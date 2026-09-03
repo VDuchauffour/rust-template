@@ -4,9 +4,9 @@
 
 ## Features
 
-- **CLI parsing** with [`clap`](https://github.com/clap-rs/clap)
+{% if cli %}- **CLI parsing** with [`clap`](https://github.com/clap-rs/clap) and cargo-style help output via [`clap-cargo`](https://github.com/crate-ci/clap-cargo)
 - **Error handling** with [`anyhow`](https://github.com/dtijv/anyhow)
-- **Dev container** with Rust, `just`, `cargo-tarpaulin`, and `pre-commit`
+{% endif %}- **Dev container** with Rust, `just`, `cargo-tarpaulin`, and `pre-commit`
 - **CI/CD** via GitHub Actions (format, lint, test, coverage, draft releases)
 - **Task runner** via [`just`](https://github.com/casey/just)
 - **Pre-commit hooks** for formatting and linting

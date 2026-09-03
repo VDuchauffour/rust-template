@@ -10,6 +10,10 @@ authors = ["{{ author_name }}{% if author_email %} <{{ author_email }}>{% endif 
 {% endif %}
 
 [dependencies]
+{% if cli %}anyhow = "1"
+clap = { version = "4", features = ["derive", "env"] }
+clap-cargo = "0.19"
+{% endif %}
 
 [profile.release]
 lto = true

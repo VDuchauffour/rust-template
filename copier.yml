@@ -63,6 +63,12 @@ build_binaries:
     targets on release?
   default: false
 
+cli:
+  type: bool
+  help: Set up a clap-based CLI with cargo-style help output (adds clap, clap-cargo,
+    and anyhow)?
+  default: false
+
 init_git_repo:
   type: bool
   help: Initialize a git repository and create an "Initial commit" once the project
@@ -87,6 +93,7 @@ _tasks:
   - '{% if not publish_to_crate %}rm -f .github/workflows/publish.yml{% endif %}'
   - '{% if not build_binaries %}rm -f .github/workflows/build-binaries.yml{% endif
     %}'
+  - '{% if not cli %}rm -f src/cli.rs{% endif %}'
   - "{% if license == 'None' %}rm -f LICENSE{% endif %}"
   - >-
     {% if init_git_repo %}[ -d .git ] || { git init -q -b main && git add -A &&
