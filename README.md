@@ -38,20 +38,20 @@ Answer the prompts (project name, license, GitHub owner, etc.) and Copier render
 
 ## Template options
 
-| Prompt                | Type   | Default           | Notes                                             |
-| --------------------- | ------ | ----------------- | ------------------------------------------------- |
-| `project_name`        | str    | `my-rust-project` | Cargo package name                                |
-| `project_description` | str    | `A Rust project`  |                                                   |
-| `github_owner`        | str    | `myusername`      |                                                   |
-| `github_repo`         | str    | `= project_name`  |                                                   |
-| `author_name`         | str    | _(empty)_         |                                                   |
-| `author_email`        | str    | _(empty)_         |                                                   |
-| `license`             | choice | `MIT`             | MIT, Apache-2.0, GPL-3.0, Unlicense, None         |
-| `copyright_holder`    | str    | `= author_name`   | Asked only for MIT / GPL-3.0                      |
-| `publish_to_crate`    | bool   | `false`           | Adds a workflow to publish the crate to crates.io |
-| `build_binaries`      | bool   | `false`           | Adds a workflow to build and upload binaries      |
-| `cli`                 | bool   | `false`           | Adds clap + clap-cargo CLI with cargo-style help  |
-| `init_git_repo`       | bool   | `true`            | Runs `git init` + an "Initial commit" when done   |
+| Prompt                | Type   | Default             | Notes                                                        |
+| --------------------- | ------ | ------------------- | ------------------------------------------------------------ |
+| `project_name`        | str    | `my-rust-project`   | Cargo package name                                           |
+| `project_description` | str    | `A Rust project`    |                                                              |
+| `github_owner`        | str    | `myusername`        |                                                              |
+| `github_repo`         | str    | `= project_name`    |                                                              |
+| `author_name`         | str    | _(empty)_           |                                                              |
+| `author_email`        | str    | _(empty)_           |                                                              |
+| `license`             | choice | `MIT OR Apache-2.0` | MIT, Apache-2.0, MIT OR Apache-2.0, GPL-3.0, Unlicense, None |
+| `copyright_holder`    | str    | `= author_name`     | Asked only for MIT / MIT OR Apache-2.0 / GPL-3.0             |
+| `publish_to_crate`    | bool   | `false`             | Adds a workflow to publish the crate to crates.io            |
+| `build_binaries`      | bool   | `false`             | Adds a workflow to build and upload binaries                 |
+| `cli`                 | bool   | `false`             | Adds clap + clap-cargo CLI with cargo-style help             |
+| `init_git_repo`       | bool   | `true`              | Runs `git init` + an "Initial commit" when done              |
 
 ## Repository layout
 
