@@ -1,0 +1,16 @@
+{% if cli %}mod cli;
+
+use anyhow::Result;
+use clap::Parser;
+
+use crate::cli::Cli;
+
+fn main() -> Result<()> {
+    let cli = Cli::parse();
+    println!("Hello, {}!", cli.name);
+    Ok(())
+}
+{% else %}fn main() {
+    println!("Hello, World!");
+}
+{% endif -%}
