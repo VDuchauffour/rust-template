@@ -34,6 +34,10 @@ jobs:
           just lint-strict
       - name: Machete
         uses: bnjbvr/cargo-machete@main
+      - name: Install cargo-udeps
+        uses: taiki-e/install-action@cargo-udeps
+      - name: Udeps
+        run: cargo +nightly udeps --all-targets --all-features
 
   coverage:
     runs-on: ubuntu-latest

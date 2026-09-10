@@ -73,12 +73,13 @@ These are shell commands, which is why `--trust` is required when copying.
 Available in rendered projects (or in the template repo if you copy a
 `justfile` out). Key shortcuts:
 
-| Command            | What it does                                                      |
-| ------------------ | ----------------------------------------------------------------- |
-| `just ci`          | `fmt-check` + `lint-strict` + `test`                              |
-| `just fmt`         | `cargo +nightly fmt`                                              |
-| `just lint-strict` | `cargo clippy -- -D warnings`                                     |
-| `just machete`     | Detects unused dependencies (installs `cargo-machete` if missing) |
+| Command            | What it does                                                                               |
+| ------------------ | ------------------------------------------------------------------------------------------ |
+| `just ci`          | `fmt-check` + `lint-strict` + `test`                                                       |
+| `just fmt`         | `cargo +nightly fmt`                                                                       |
+| `just lint-strict` | `cargo clippy -- -D warnings`                                                              |
+| `just machete`     | Detects unused dependencies (installs `cargo-machete` if missing)                          |
+| `just udeps`       | Detects unused dependencies via compiler data (nightly, installs `cargo-udeps` if missing) |
 
 ## PR conventions
 

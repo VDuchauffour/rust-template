@@ -47,6 +47,10 @@ machete:
     command -v cargo-machete >/dev/null 2>&1 || cargo install cargo-machete
     cargo machete
 
+udeps:
+    command -v cargo-udeps >/dev/null 2>&1 || cargo install cargo-udeps --locked
+    cargo +nightly udeps --all-targets --all-features
+
 check:
     cargo check
 
